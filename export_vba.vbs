@@ -1,17 +1,17 @@
 '=======================================================================
-'g—p•û–@
+'ä½¿ç”¨æ–¹æ³•
 '=======================================================================
-'1 target_file_path:    ƒ\[ƒX‚ğo—Í‚·‚é‘ÎÛƒtƒ@ƒCƒ‹‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B
-'2 output_folder_path:  o—Íæ‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B
+'1 target_file_path:    ã‚½ãƒ¼ã‚¹ã‚’å‡ºåŠ›ã™ã‚‹å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚
+'2 output_folder_path:  å‡ºåŠ›å…ˆã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚
 
 '=======================================================================
-'g—p‚Ìƒgƒ‰ƒuƒ‹ƒVƒ…[ƒeƒBƒ“ƒO
+'ä½¿ç”¨æ™‚ã®ãƒˆãƒ©ãƒ–ãƒ«ã‚·ãƒ¥ãƒ¼ãƒ†ã‚£ãƒ³ã‚°
 '=======================================================================
-'Q ƒvƒƒOƒ‰ƒ~ƒ“ƒO‚É‚æ‚é Visual Basic ƒvƒƒWƒFƒNƒg‚Ö‚ÌƒAƒNƒZƒX‚ÍM—Š«‚ÉŒ‡‚¯‚Ü‚·‚Æ‚ÍH
-'A Excel‚ÌƒIƒvƒVƒ‡ƒ“@Ë@ƒZƒLƒ…ƒŠƒeƒBƒZƒ“ƒ^[@Ë@ƒ}ƒNƒ‚Ìİ’è@Ë@VBAƒvƒƒWƒFƒNƒgƒIƒuƒWƒFƒNƒg‚Ö‚ÌƒAƒNƒZƒX‚ğM—Š‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B
+'Q ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°ã«ã‚ˆã‚‹ Visual Basic ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¸ã®ã‚¢ã‚¯ã‚»ã‚¹ã¯ä¿¡é ¼æ€§ã«æ¬ ã‘ã¾ã™ã¨ã¯ï¼Ÿ
+'A Excelã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã€€â‡’ã€€ã‚»ã‚­ãƒ¥ãƒªãƒ†ã‚£ã‚»ãƒ³ã‚¿ãƒ¼ã€€â‡’ã€€ãƒã‚¯ãƒ­ã®è¨­å®šã€€â‡’ã€€VBAãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®ã‚¢ã‚¯ã‚»ã‚¹ã‚’ä¿¡é ¼ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
 
 '=======================================================================
-'•Ï”E‰Šú’l’è‹`
+'å¤‰æ•°ãƒ»åˆæœŸå€¤å®šç¾©
 '=======================================================================
 Dim objParams, strFullPath, strFileName, objExcel
 Dim objTempComponent, strCode
@@ -24,22 +24,22 @@ strFileName = ""
 strFilePath = ""
 
 '=======================================================================
-'ˆø”ƒ`ƒFƒbƒN
+'å¼•æ•°ãƒã‚§ãƒƒã‚¯
 '=======================================================================
 Set objParams = WScript.Arguments
 
 'If objParams.Count <> 2 Then
 
-'	Msgbox "ˆø”‚ª‘«‚è‚Ü‚¹‚ñBo—Íæ‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B"
+'	Msgbox "å¼•æ•°ãŒè¶³ã‚Šã¾ã›ã‚“ã€‚å‡ºåŠ›å…ˆã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚"
 '	WScript.Quit 0
 	
 'end if
 
 '=======================================================================
-'ˆø”İ’è
+'å¼•æ•°è¨­å®š
 '=======================================================================
-strFullPath = objParams.item(0)     'ƒGƒNƒXƒ|[ƒg‘ÎÛ‚Ìƒtƒ@ƒCƒ‹ƒpƒX
-strExportPath = objParams.Item(1)  'ƒGƒNƒXƒ|[ƒgæ‚ÌƒpƒX‚ğˆø”‚Åw’è‚·‚éB
+strFullPath = objParams.item(0)     'ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆå¯¾è±¡ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹
+strExportPath = objParams.Item(1)  'ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆå…ˆã®ãƒ‘ã‚¹ã‚’å¼•æ•°ã§æŒ‡å®šã™ã‚‹ã€‚
 
 Set FSO = CreateObject("Scripting.FileSystemObject")
 strFileName = FSO.GetFileName(strFullPath)
@@ -49,28 +49,28 @@ Set objParams = Nothing
 Set FSO = Nothing
 
 '=======================================================================
-'ƒIƒuƒWƒFƒNƒg‰Šú‰»
+'ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆåˆæœŸåŒ–
 '=======================================================================
-'Excel‘€ì€”õ
+'Excelæ“ä½œæº–å‚™
 Set objExcel = CreateObject("Excel.Application")
 
-'ó‘Ô‚ğ•ÏX‚·‚éB
+'çŠ¶æ…‹ã‚’å¤‰æ›´ã™ã‚‹ã€‚
 objExcel.Visible = False
 objExcel.DisplayAlerts = False
 objExcel.EnableEvents = False
 
-'ƒ}ƒNƒ‚ª–³Œø‚Ìó‘Ô‚ÅŠJ‚­@¦‚¤‚Ü‚­“®‚©‚È‚¢‚Ì‚Å–³‹
+'ãƒã‚¯ãƒ­ãŒç„¡åŠ¹ã®çŠ¶æ…‹ã§é–‹ãã€€â€»ã†ã¾ãå‹•ã‹ãªã„ã®ã§ç„¡è¦–
 'objExcel.AutomationSecurity = msoAutomationSecurityForceDisable
 
 
 '=======================================================================
-'ƒ\[ƒXƒGƒNƒXƒ|[ƒg
+'ã‚½ãƒ¼ã‚¹ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆ
 '=======================================================================
-'ƒ\[ƒX‚ğƒGƒNƒXƒ|[ƒg‚·‚é
+'ã‚½ãƒ¼ã‚¹ã‚’ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆã™ã‚‹
 Call ExportSource(strFullPath, strExportPath)
 
 '=======================================================================
-'’÷‚ßˆ—
+'ç· ã‚å‡¦ç†
 '=======================================================================
 objExcel.DisplayAlerts = True
 objExcel.EnableEvents = True
@@ -81,7 +81,7 @@ Set objExcel = Nothing
 
 
 '--------------------------------------------------------------------------
-'ƒ\[ƒX‚ğƒGƒNƒXƒ|[ƒg‚·‚é
+'ã‚½ãƒ¼ã‚¹ã‚’ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆã™ã‚‹
 '--------------------------------------------------------------------------
 Sub ExportSource(strFullPath, strExportPath)
 
@@ -96,9 +96,14 @@ Sub ExportSource(strFullPath, strExportPath)
     On Error GoTo 0
     
     If ErrNumber = 50289 Then
-        'OpenProject ("erp3707") ‚È‚ñ‚¾‚Á‚¯‚±‚ê
+        'OpenProject ("erp3707") ãªã‚“ã ã£ã‘ã“ã‚Œ
     End If
-    
+								
+								Open strExportPath & "\__worksheet_info.bas" For Output As #1
+								For Each ws In objWorkBook.WorkSheets
+								Print #1,ws.name
+							Next
+							Close #1
 
     For Each TempComponent In objWorkBook.VBProject.VBComponents
         If TempComponent.CodeModule.CountOfDeclarationLines <> TempComponent.CodeModule.CountOfLines Then
@@ -113,15 +118,15 @@ Sub ExportSource(strFullPath, strExportPath)
                 'USER_FORM
                 Case 3
                     TempComponent.Export strExportPath & "\" & TempComponent.Name & ".frm"
-                'SHEET‚ÆThisWorkBook
+                'SHEETã¨ThisWorkBook
                 Case 100
                     TempComponent.Export strExportPath & "\" & TempComponent.Name & ".bas"
-                '‚»‚êˆÈŠO‚Í‘z’è‚µ‚Ä‚¢‚È‚¢‚Ì‚ÅƒGƒ‰[
+                'ãã‚Œä»¥å¤–ã¯æƒ³å®šã—ã¦ã„ãªã„ã®ã§ã‚¨ãƒ©ãƒ¼
                 Case Else
                 	Msgbox TempComponent.Name
             End Select
 
-            'ƒR[ƒhs”‚ğo‚»‚¤‚Æ‚µ‚Ä‚¢‚½‚Ì‚©‚à
+            'ã‚³ãƒ¼ãƒ‰è¡Œæ•°ã‚’å‡ºãã†ã¨ã—ã¦ã„ãŸã®ã‹ã‚‚
             With TempComponent.CodeModule
                 'Code = .Lines(1, .CountOfLines)
                 'Code = .Lines(.CountOfDeclarationLines + 1, .CountOfLines - .CountOfDeclarationLines + 1)
@@ -129,9 +134,9 @@ Sub ExportSource(strFullPath, strExportPath)
             
         Else
             
-            'DeclareStatement‚È‚Ç‚Í‚±‚Á‚¿‚ğ’Ê‚é
-            '‰½‚Ì‚½‚ß‚É”äŠr‚µ‚Ä‚¢‚é‚©‚í‚©‚ç‚È‚¢
-            '‚¨‚»‚ç‚­AƒR[ƒh‚ª‚È‚¢ƒ‚ƒWƒ…[ƒ‹‚ÍÈ‚¢‚Ä‚¢‚éŠ´‚¶
+            'DeclareStatementãªã©ã¯ã“ã£ã¡ã‚’é€šã‚‹
+            'ä½•ã®ãŸã‚ã«æ¯”è¼ƒã—ã¦ã„ã‚‹ã‹ã‚ã‹ã‚‰ãªã„
+            'ãŠãã‚‰ãã€ã‚³ãƒ¼ãƒ‰ãŒãªã„ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã¯çœã„ã¦ã„ã‚‹æ„Ÿã˜
             
              Select Case TempComponent.Type
                 'STANDARD_MODULE
@@ -143,15 +148,15 @@ Sub ExportSource(strFullPath, strExportPath)
                 'USER_FORM
                 Case 3
                     TempComponent.Export strExportPath & "\" & objWorkBook.Name & "_" & TempComponent.Name & ".frm"
-                'SHEET‚ÆThisWorkBook
+                'SHEETã¨ThisWorkBook
                 Case 100
                     TempComponent.Export strExportPath & "\" & objWorkBook.Name & "_" & TempComponent.Name & ".bas"
-                '‚»‚êˆÈŠO‚Í‘z’è‚µ‚Ä‚¢‚È‚¢‚Ì‚ÅƒGƒ‰[
+                'ãã‚Œä»¥å¤–ã¯æƒ³å®šã—ã¦ã„ãªã„ã®ã§ã‚¨ãƒ©ãƒ¼
                 Case Else
                 	Msgbox TempComponent.Name
             End Select
 
-            'ƒR[ƒhs”‚ğo‚»‚¤‚Æ‚µ‚Ä‚¢‚½‚Ì‚©‚à
+            'ã‚³ãƒ¼ãƒ‰è¡Œæ•°ã‚’å‡ºãã†ã¨ã—ã¦ã„ãŸã®ã‹ã‚‚
             With TempComponent.CodeModule
                 'Code = .Lines(1, .CountOfLines)
                 'Code = .Lines(.CountOfDeclarationLines + 1, .CountOfLines - .CountOfDeclarationLines + 1)
