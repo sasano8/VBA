@@ -1,3 +1,0 @@
-
-
-Application.Run "'" & ƒuƒbƒN–¼ & "'!ThisWorkbook.Workbook_Open"
