@@ -98,12 +98,22 @@ Sub ExportSource(strFullPath, strExportPath)
     If ErrNumber = 50289 Then
         'OpenProject ("erp3707") なんだっけこれ
     End If
+
+								Dim objFso
+								Dim objFile
 								
-								Open strExportPath & "\__worksheet_info.bas" For Output As #1
-								For Each ws In objWorkBook.WorkSheets
-								Print #1,ws.name
-							Next
-							Close #1
+    Set objFso = CreateObject("Scripting.FileSystemObject")
+									Set objFile = objFso.OpenTextFile(strExportPath & "\worksheetinfo.txt", 2, True)
+
+If Err.Number > 0 Then
+    WScript.Echo "Open Error"
+Else
+    objFile.WriteLine "書き込む文字列です。"
+End If
+
+objFile.Close
+Set objFile = Nothing
+Set objFso = Nothing
 
     For Each TempComponent In objWorkBook.VBProject.VBComponents
         If TempComponent.CodeModule.CountOfDeclarationLines <> TempComponent.CodeModule.CountOfLines Then
