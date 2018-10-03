@@ -1,11 +1,19 @@
-'Sub ExportAll(target_file_path As String, output_folder_path As String)
+'=======================================================================
+'ä½¿ç”¨æ–¹æ³•
+'=======================================================================
+'1 target_file_path:    ã‚½ãƒ¼ã‚¹ã‚’å‡ºåŠ›ã™ã‚‹å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚
+'2 output_folder_path:  å‡ºåŠ›å…ˆã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚
 
-'ˆø”
-'<target_file_path>o—Í‘ÎÛ‚Ìƒtƒ@ƒCƒ‹‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B
-'<output_folder_path>o—Íæ‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B
+'=======================================================================
+'ä½¿ç”¨æ™‚ã®ãƒˆãƒ©ãƒ–ãƒ«ã‚·ãƒ¥ãƒ¼ãƒ†ã‚£ãƒ³ã‚°
+'=======================================================================
+'Q ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°ã«ã‚ˆã‚‹ Visual Basic ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¸ã®ã‚¢ã‚¯ã‚»ã‚¹ã¯ä¿¡é ¼æ€§ã«æ¬ ã‘ã¾ã™ã¨ã¯ï¼Ÿ
+'A Excelã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã€€â‡’ã€€ã‚»ã‚­ãƒ¥ãƒªãƒ†ã‚£ã‚»ãƒ³ã‚¿ãƒ¼ã€€â‡’ã€€ãƒã‚¯ãƒ­ã®è¨­å®šã€€â‡’ã€€VBAãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®ã‚¢ã‚¯ã‚»ã‚¹ã‚’ä¿¡é ¼ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
 
-
-Dim objParams, strFullPath, strFileName, objExcel, objWorkBook
+'=======================================================================
+'å¤‰æ•°ãƒ»åˆæœŸå€¤å®šç¾©
+'=======================================================================
+Dim objParams, strFullPath, strFileName, objExcel
 Dim objTempComponent, strCode
 Dim strExportPath
 Dim FSO
@@ -19,19 +27,21 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 Set objParams = WScript.Arguments
 
 
-
+'=======================================================================
+'å¼•æ•°ãƒã‚§ãƒƒã‚¯
+'=======================================================================
 'If objParams.Count <> 2 Then
 
-'	Msgbox "ˆø”‚ª‘«‚è‚Ü‚¹‚ñBo—Íæ‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B"
+'	Msgbox "å¼•æ•°ãŒè¶³ã‚Šã¾ã›ã‚“ã€‚å‡ºåŠ›å…ˆã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚"
 '	WScript.Quit 0
 	
 'end if
 
 
-strFullPath = objParams.item(0)     'ƒGƒNƒXƒ|[ƒg‘ÎÛ‚Ìƒtƒ@ƒCƒ‹ƒpƒX
+strFullPath = objParams.item(0)     'ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆå¯¾è±¡ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹
 'strFullPath = target_file_path
     
-strExportPath = objParams.Item(1)  'ƒGƒNƒXƒ|[ƒgæ‚ÌƒpƒX‚ğˆø”‚Åw’è‚·‚éB
+strExportPath = objParams.Item(1)  'ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆå…ˆã®ãƒ‘ã‚¹ã‚’å¼•æ•°ã§æŒ‡å®šã™ã‚‹ã€‚
 'strExportPath = "C:\Users\yasuhisa-sasahara\Documents\dev\src_text"
 
 strFileName = FSO.GetFileName(strFullPath)
@@ -45,27 +55,27 @@ strFilePath = FSO.GetParentFolderName(strFullPath)
 
 
 
-'Excel‘€ì€”õ
+'Excelæ“ä½œæº–å‚™
 Set objExcel = CreateObject("Excel.Application")
 
-'ó‘Ô‚ğ•ÏX‚·‚éB
+'çŠ¶æ…‹ã‚’å¤‰æ›´ã™ã‚‹ã€‚
 objExcel.Visible = False
 objExcel.DisplayAlerts = False
 objExcel.EnableEvents = False
 
-'ƒ}ƒNƒ‚ª–³Œø‚Ìó‘Ô‚ÅŠJ‚­
-'¦‚¾‚ß‚¾‚Á‚½IIobjExcel.AutomationSecurity = msoAutomationSecurityForceDisable
+'ãƒã‚¯ãƒ­ãŒç„¡åŠ¹ã®çŠ¶æ…‹ã§é–‹ã
+'â€»ã ã‚ã ã£ãŸï¼ï¼objExcel.AutomationSecurity = msoAutomationSecurityForceDisable
 Set objWorkBook = objExcel.Workbooks.Open(strFullPath)
 
 
-'ƒ\[ƒX‚ğƒGƒNƒXƒ|[ƒg‚·‚é
+'ã‚½ãƒ¼ã‚¹ã‚’ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆã™ã‚‹
 Call ExportSource(objWorkBook, strExportPath)
 
-'Excel‚ğƒNƒ[ƒY
+'Excelã‚’ã‚¯ãƒ­ãƒ¼ã‚º
 Set FSO = Nothing
 Set objParams = Nothing
 
-'ó‘Ô‚ğ–ß‚·
+'çŠ¶æ…‹ã‚’æˆ»ã™
 objExcel.DisplayAlerts = True
 objExcel.EnableEvents = True
 objWorkBook.Close False
@@ -80,7 +90,7 @@ Set objExcel = Nothing
 
 
 '--------------------------------------------------------------------------
-'ƒ\[ƒX‚ğƒGƒNƒXƒ|[ƒg‚·‚é
+'ã‚½ãƒ¼ã‚¹ã‚’ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆã™ã‚‹
 '--------------------------------------------------------------------------
 Sub ExportSource(ByRef objWorkBook, strExportPath)
 
@@ -109,7 +119,7 @@ Sub ExportSource(ByRef objWorkBook, strExportPath)
                 'USER_FORM
                 Case 3
                     TempComponent.Export strExportPath & "\" & objWorkBook.Name & "_" & TempComponent.Name & ".frm"
-                'SHEET‚ÆThisWorkBook
+                'SHEETã¨ThisWorkBook
                 Case 100
                     TempComponent.Export strExportPath & "\" & objWorkBook.Name & "_" & TempComponent.Name & ".bas"
                 Case Else
@@ -122,9 +132,9 @@ Sub ExportSource(ByRef objWorkBook, strExportPath)
             
         Else
             
-            'DeclareStatement‚È‚Ç‚Í‚±‚Á‚¿‚ğ’Ê‚é
-            '‰½‚Ì‚½‚ß‚É”äŠr‚µ‚Ä‚¢‚é‚©‚í‚©‚ç‚È‚¢
-            '‚¨‚»‚ç‚­AƒR[ƒh‚ª‚È‚¢ƒ‚ƒWƒ…[ƒ‹‚ÍÈ‚¢‚Ä‚¢‚éŠ´‚¶
+            'DeclareStatementãªã©ã¯ã“ã£ã¡ã‚’é€šã‚‹
+            'ä½•ã®ãŸã‚ã«æ¯”è¼ƒã—ã¦ã„ã‚‹ã‹ã‚ã‹ã‚‰ãªã„
+            'ãŠãã‚‰ãã€ã‚³ãƒ¼ãƒ‰ãŒãªã„ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã¯çœã„ã¦ã„ã‚‹æ„Ÿã˜
             'Msgbox TempComponent.Name
             
              Select Case TempComponent.Type
@@ -137,7 +147,7 @@ Sub ExportSource(ByRef objWorkBook, strExportPath)
                 'USER_FORM
                 Case 3
                     TempComponent.Export strExportPath & "\" & objWorkBook.Name & "_" & TempComponent.Name & ".frm"
-                'SHEET‚ÆThisWorkBook
+                'SHEETã¨ThisWorkBook
                 Case 100
                     TempComponent.Export strExportPath & "\" & objWorkBook.Name & "_" & TempComponent.Name & ".bas"
                 Case Else
